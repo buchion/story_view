@@ -49,6 +49,96 @@ class StoryItem {
   ///
   /// Works for inline and full-page stories. See [StoryView.inline] for more on
   /// what inline/full-page means.
+  /// 
+  
+  static StoryItem hervestCustomStory({
+    required String title,
+    required String subtitle,
+    required Widget image,
+    String? storyHeader,
+    Widget? storyHeaderIcon,
+    Widget? entireView,
+    required Color backgroundColor,
+    Key? key,
+    TextStyle? textStyle,
+    bool shown = false,
+    bool roundedTop = false,
+    bool roundedBottom = false,
+    Duration? duration,
+  }) {
+    double contrast = ContrastHelper.contrast([
+      backgroundColor.red,
+      backgroundColor.green,
+      backgroundColor.blue,
+    ], [
+      255,
+      255,
+      255
+    ] /** white text */);
+
+    return StoryItem(
+      Container(
+        key: key,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(roundedTop ? 8 : 0),
+            bottom: Radius.circular(roundedBottom ? 8 : 0),
+          ),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 16,
+        ),
+        child: 
+        Column(
+          children: [
+            Text(
+            title,
+            style: textStyle?.copyWith(
+                  color: contrast > 1.8 ? Colors.white : Colors.black,
+                ) ??
+                TextStyle(
+                  color: contrast > 1.8 ? Colors.white : Colors.black,
+                  fontSize: 18,
+                ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 40,),
+          Text(
+            subtitle,
+            style: textStyle?.copyWith(
+                  color: contrast > 1.8 ? Colors.white : Colors.black,
+                ) ??
+                TextStyle(
+                  color: contrast > 1.8 ? Colors.white : Colors.black,
+                  fontSize: 18,
+                ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 90,),
+          image
+          ],
+        )
+        // Center(
+        //   child: Text(
+        //     title,
+        //     style: textStyle?.copyWith(
+        //           color: contrast > 1.8 ? Colors.white : Colors.black,
+        //         ) ??
+        //         TextStyle(
+        //           color: contrast > 1.8 ? Colors.white : Colors.black,
+        //           fontSize: 18,
+        //         ),
+        //     textAlign: TextAlign.center,
+        //   ),
+        // ),
+      ),
+      shown: shown,
+      duration: duration ?? Duration(seconds: 3),
+    );
+  }
+
   static StoryItem text({
     required String title,
     required Color backgroundColor,
