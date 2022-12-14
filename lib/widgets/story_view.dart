@@ -57,8 +57,9 @@ class StoryItem {
     required String subtitle,
     required Widget image,
     String? storyHeader,
+    TextStyle? storyHeaderStyle,
     Widget? storyHeaderIcon,
-    Widget? entireView,
+    Widget? chipAvatar,
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
@@ -91,12 +92,20 @@ class StoryItem {
           horizontal: 24,
           vertical: 16,
         ),
-        child: Center(
+        // child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 120
+              SizedBox(height: 50,),
+              Chip(
+                avatar: chipAvatar,
+                label: Text(
+                  storyHeader.toString(),
+                  style: storyHeaderStyle,
+                ),
               ),
+              SizedBox(height: 150),
               Text(
                 title,
                 style: textStyle?.copyWith(
@@ -127,10 +136,12 @@ class StoryItem {
               SizedBox(
                 height: 150,
               ),
-              image
+
+              Center(child: image)
+              
             ],
           ),
-        ),
+        // ),
       ),
       shown: shown,
       duration: duration ?? Duration(seconds: 3),
