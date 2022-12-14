@@ -94,6 +94,9 @@ class StoryItem {
         child: Center(
           child: Column(
             children: [
+              SizedBox(
+                height: 120
+              ),
               Text(
                 title,
                 style: textStyle?.copyWith(
@@ -107,7 +110,7 @@ class StoryItem {
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                height: 40,
+                height: 10,
               ),
               Text(
                 subtitle,
@@ -122,7 +125,7 @@ class StoryItem {
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                height: 90,
+                height: 150,
               ),
               image
             ],
