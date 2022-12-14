@@ -90,14 +90,13 @@ class StoryItem {
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 24,
-          vertical: 16,
+          // vertical: 10,
         ),
         // child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20,),
               Chip(
                 avatar: chipAvatar,
                 backgroundColor: Color(0xFF5B2E4F),
