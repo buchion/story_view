@@ -51,16 +51,11 @@ class StoryItem {
   /// Works for inline and full-page stories. See [StoryView.inline] for more on
   /// what inline/full-page means.
   ///
-  
-    static StoryItem hervestTextStory({
+
+  static StoryItem hervestTextStory({
     required String title,
     required String subtitle,
-    // required Widget image,
-    String? chipHeader,
-    TextStyle? chipHeaderStyle,
-    Widget? storyHeaderIcon,
-    Widget? chipAvatar,
-    StadiumBorder? borderside,
+    Widget? chipRow,
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
@@ -92,51 +87,44 @@ class StoryItem {
         padding: EdgeInsets.symmetric(
           horizontal: 24,
         ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 50),
-              Chip(
-                avatar: chipAvatar,
-                shape: borderside,
-                backgroundColor: Color(0xFF5B2E4F),
-                label: Text(
-                  '',
-                  style: chipHeaderStyle,
-                ),
-              ),
-              SizedBox(height: 50),
-              Text(
-                title,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                subtitle,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),
-                textAlign: TextAlign.left,
-              ),
-              
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50),
+
+            SizedBox(child: chipRow,),
+            
+            SizedBox(height: 50),
+            Text(
+              title,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              subtitle,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+          ],
+        ),
       ),
       shown: shown,
       duration: duration ?? Duration(seconds: 12),
@@ -185,56 +173,54 @@ class StoryItem {
           // vertical: 10,
         ),
         // child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 50),
-              Chip(
-                avatar: chipAvatar,
-                shape: borderside,
-                backgroundColor: Color(0xFF5B2E4F),
-                label: Text(
-                  chipHeader.toString(),
-                  style: chipHeaderStyle,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50),
+            Chip(
+              avatar: chipAvatar,
+              shape: borderside,
+              backgroundColor: Color(0xFF5B2E4F),
+              label: Text(
+                chipHeader.toString(),
+                style: chipHeaderStyle,
               ),
-              SizedBox(height: 50),
-              Text(
-                title,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                subtitle,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                    ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(
-                height: 80,
-              ),
-
-              Center(child: image)
-              
-            ],
-          ),
+            ),
+            SizedBox(height: 50),
+            Text(
+              title,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              subtitle,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(
+              height: 80,
+            ),
+            Center(child: image)
+          ],
+        ),
         // ),
       ),
       shown: shown,
