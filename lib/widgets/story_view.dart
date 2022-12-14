@@ -94,10 +94,10 @@ class StoryItem {
         ),
         // child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               Chip(
                 avatar: chipAvatar,
                 backgroundColor: Color(0xFF5B2E4F),
