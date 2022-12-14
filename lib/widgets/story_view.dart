@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../controller/story_controller.dart';
 import '../utils.dart';
@@ -63,6 +64,7 @@ class StoryItem {
     bool roundedTop = false,
     bool roundedBottom = false,
     Duration? duration,
+    required BuildContext context,
   }) {
     double contrast = ContrastHelper.contrast([
       backgroundColor.red,
@@ -91,11 +93,21 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
-
-            SizedBox(child: chipRow,),
+            SizedBox(height: 45),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset('assets/img/twobag', width: 30, height: 30),
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
             
-            SizedBox(height: 50),
+            SizedBox(height: 45),
             Text(
               title,
               style: textStyle?.copyWith(
