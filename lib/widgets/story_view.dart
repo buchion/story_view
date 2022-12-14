@@ -97,15 +97,15 @@ class StoryItem {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Chip(
-                avatar: chipAvatar,
-                backgroundColor: Color(0xFF5B2E4F),
-                label: Text(
-                  chipHeader.toString(),
-                  style: chipHeaderStyle,
-                ),
-              ),
-              SizedBox(height: 100),
+              // Chip(
+              //   avatar: chipAvatar,
+              //   backgroundColor: Color(0xFF5B2E4F),
+              //   label: Text(
+              //     chipHeader.toString(),
+              //     style: chipHeaderStyle,
+              //   ),
+              // ),
+              // SizedBox(height: 100),
               Text(
                 title,
                 style: textStyle?.copyWith(
