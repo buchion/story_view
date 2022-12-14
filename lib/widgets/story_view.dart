@@ -97,7 +97,7 @@ class StoryItem {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 50,),
+              SizedBox(height: 10,),
               Chip(
                 avatar: chipAvatar,
                 label: Text(
@@ -105,7 +105,7 @@ class StoryItem {
                   style: storyHeaderStyle,
                 ),
               ),
-              SizedBox(height: 150),
+              SizedBox(height: 120),
               Text(
                 title,
                 style: textStyle?.copyWith(
