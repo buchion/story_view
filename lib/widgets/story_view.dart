@@ -98,6 +98,7 @@ class StoryItem {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 30),
               Chip(
                 avatar: chipAvatar,
                 shape: borderside,
@@ -136,7 +137,7 @@ class StoryItem {
                 textAlign: TextAlign.left,
               ),
               SizedBox(
-                height: 150,
+                height: 100,
               ),
 
               Center(child: image)
