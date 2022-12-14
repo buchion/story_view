@@ -60,6 +60,7 @@ class StoryItem {
     TextStyle? chipHeaderStyle,
     Widget? storyHeaderIcon,
     Widget? chipAvatar,
+    StadiumBorder? borderside,
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
@@ -97,15 +98,16 @@ class StoryItem {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Chip(
-              //   avatar: chipAvatar,
-              //   backgroundColor: Color(0xFF5B2E4F),
-              //   label: Text(
-              //     chipHeader.toString(),
-              //     style: chipHeaderStyle,
-              //   ),
-              // ),
-              // SizedBox(height: 100),
+              Chip(
+                avatar: chipAvatar,
+                shape: borderside,
+                backgroundColor: Color(0xFF5B2E4F),
+                label: Text(
+                  chipHeader.toString(),
+                  style: chipHeaderStyle,
+                ),
+              ),
+              SizedBox(height: 20),
               Text(
                 title,
                 style: textStyle?.copyWith(
