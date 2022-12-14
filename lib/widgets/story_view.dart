@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../controller/story_controller.dart';
 import '../utils.dart';
@@ -49,8 +50,8 @@ class StoryItem {
   ///
   /// Works for inline and full-page stories. See [StoryView.inline] for more on
   /// what inline/full-page means.
-  /// 
-  
+  ///
+
   static StoryItem hervestCustomStory({
     required String title,
     required String subtitle,
@@ -90,49 +91,43 @@ class StoryItem {
           horizontal: 24,
           vertical: 16,
         ),
-        child: 
-        Column(
-          children: [
-            Text(
-            title,
-            style: textStyle?.copyWith(
-                  color: contrast > 1.8 ? Colors.white : Colors.black,
-                ) ??
-                TextStyle(
-                  color: contrast > 1.8 ? Colors.white : Colors.black,
-                  fontSize: 18,
-                ),
-            textAlign: TextAlign.center,
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                title,
+                style: textStyle?.copyWith(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                    ) ??
+                    TextStyle(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Text(
+                subtitle,
+                style: textStyle?.copyWith(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                    ) ??
+                    TextStyle(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
+                textAlign: TextAlign.left,
+              ),
+              SizedBox(
+                height: 90,
+              ),
+              image
+            ],
           ),
-          SizedBox(height: 40,),
-          Text(
-            subtitle,
-            style: textStyle?.copyWith(
-                  color: contrast > 1.8 ? Colors.white : Colors.black,
-                ) ??
-                TextStyle(
-                  color: contrast > 1.8 ? Colors.white : Colors.black,
-                  fontSize: 18,
-                ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 90,),
-          image
-          ],
-        )
-        // Center(
-        //   child: Text(
-        //     title,
-        //     style: textStyle?.copyWith(
-        //           color: contrast > 1.8 ? Colors.white : Colors.black,
-        //         ) ??
-        //         TextStyle(
-        //           color: contrast > 1.8 ? Colors.white : Colors.black,
-        //           fontSize: 18,
-        //         ),
-        //     textAlign: TextAlign.center,
-        //   ),
-        // ),
+        ),
       ),
       shown: shown,
       duration: duration ?? Duration(seconds: 3),

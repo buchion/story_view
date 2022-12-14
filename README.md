@@ -1,5 +1,50 @@
 # story_view [![Pub](https://img.shields.io/pub/v/story_view.svg)](https://pub.dev/packages/story_view)
 
+How to modify an existing pub package to use in your flutter project
+
+Why do you always rely on somebody else’s pub packages? You can add your creativity to any package.
+
+
+You can not make changes to the original package. You have to fork that particular repository.
+
+Perform the following steps to modify an existing package:
+
+Step 1: Find the pub package you want to modify.
+
+Step 2: Go to the git repository of that package.
+
+Step 3: Fork Repository (you need to log in with your git account on Github).
+
+On clicking the fork button, it will create a repository in your GitHub account.
+Clone your repository and make your changes into the package.
+Step 4: Commit and Push your changes to your forked repository.
+
+Step 5: Refresh your forked repository and you’ll find your latest commit there.
+
+if you don’t find your commits in the forked repository then please verify the git user.
+How to add this modified package into your flutter project?
+
+
+Add flutter dependency into your pubspec.yaml file as below:
+dependencies:
+  flutter:
+    sdk: flutter
+
+  [package-name]:
+    git:
+      url: https://github.com/[git-username]/[git-repository-name]
+If you think your changes in the package are helpful to others then submit a pull request to the original author of the library. The author will identify your commit and if they find it fruitful then they will merge it into the main repository.
+
+If your pull request gets accepted then you can use the main package with the updated version.
+
+Disclaimer: After performing the above steps you are using packages from your repository. So, if the owner of the original package gives an update then you will not receive those updates.😊
+
+That’s all for this particular post. I hope I was able to explain how we can apply modification in an existing package and use it in your Flutter project.
+
+Feel Free to post your comments if you face any issues. You can 👏 if you liked the article. Do you know that you can 👏 50 times in a single post? try it.
+
+Thanks for reading…!!!
+
 Story view for apps with stories.
 
 <p float="left">
@@ -99,3 +144,5 @@ Widget build(context) {
 ```
 
 🍭 Now, tell your users some stories.
+
+
