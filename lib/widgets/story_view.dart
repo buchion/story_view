@@ -97,7 +97,7 @@ class StoryItem {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset('assets/img/twobag', width: 30, height: 30),
+                SvgPicture.asset('assets/img/twobag.svg', width: 30, height: 30),
                 IconButton(
                   icon: const Icon(Icons.close, color: Colors.white),
                   onPressed: () {
