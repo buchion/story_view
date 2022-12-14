@@ -56,8 +56,8 @@ class StoryItem {
     required String title,
     required String subtitle,
     required Widget image,
-    String? storyHeader,
-    TextStyle? storyHeaderStyle,
+    String? chipHeader,
+    TextStyle? chipHeaderStyle,
     Widget? storyHeaderIcon,
     Widget? chipAvatar,
     required Color backgroundColor,
@@ -100,12 +100,13 @@ class StoryItem {
               SizedBox(height: 10,),
               Chip(
                 avatar: chipAvatar,
+                backgroundColor: Color(0xFF5B2E4F),
                 label: Text(
-                  storyHeader.toString(),
-                  style: storyHeaderStyle,
+                  chipHeader.toString(),
+                  style: chipHeaderStyle,
                 ),
               ),
-              SizedBox(height: 120),
+              SizedBox(height: 100),
               Text(
                 title,
                 style: textStyle?.copyWith(
