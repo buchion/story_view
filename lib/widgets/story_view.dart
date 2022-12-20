@@ -6,6 +6,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter/foundation.dart';
 
 import '../controller/story_controller.dart';
 import '../utils.dart';
@@ -57,6 +58,7 @@ class StoryItem {
     required String title,
     required String subtitle,
     Widget? chipRow,
+    required Widget titleCircleAvatar,
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
@@ -94,10 +96,14 @@ class StoryItem {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 35),
+            if (defaultTargetPlatform == TargetPlatform.iOS) ...[
+              SizedBox(height: 10),
+            ],
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset('assets/img/twobag.svg', width: 30, height: 30),
+                SvgPicture.asset('assets/img/twobag.svg',
+                    width: 30, height: 30),
                 IconButton(
                   icon: const Icon(Icons.close, color: Colors.white),
                   onPressed: () {
@@ -106,8 +112,9 @@ class StoryItem {
                 ),
               ],
             ),
-            
             SizedBox(height: 35),
+            titleCircleAvatar,
+            SizedBox(height: 15),
             Text(
               title,
               style: textStyle?.copyWith(
@@ -190,6 +197,9 @@ class StoryItem {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50),
+            if (defaultTargetPlatform == TargetPlatform.iOS) ...[
+              SizedBox(height: 10),
+            ],
             Chip(
               avatar: chipAvatar,
               shape: borderside,
