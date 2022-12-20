@@ -93,7 +93,7 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 45),
+            SizedBox(height: 35),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -107,7 +107,7 @@ class StoryItem {
               ],
             ),
             
-            SizedBox(height: 45),
+            SizedBox(height: 35),
             Text(
               title,
               style: textStyle?.copyWith(
