@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/foundation.dart';
+import 'package:story_view/funts.dart';
 
 import '../controller/story_controller.dart';
 import '../utils.dart';
@@ -95,10 +96,10 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 35),
-            if (defaultTargetPlatform == TargetPlatform.iOS) ...[
-              SizedBox(height: 10),
-            ],
+            SizedBox(height: 50),
+            // if (defaultTargetPlatform == TargetPlatform.iOS) ...[
+            //   SizedBox(height: 20),
+            // ],
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -158,6 +159,7 @@ class StoryItem {
     TextStyle? chipHeaderStyle,
     Widget? storyHeaderIcon,
     Widget? chipAvatar,
+    String? moneyFormated,
     StadiumBorder? borderside,
     required Color backgroundColor,
     Key? key,
@@ -197,9 +199,9 @@ class StoryItem {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50),
-            if (defaultTargetPlatform == TargetPlatform.iOS) ...[
-              SizedBox(height: 10),
-            ],
+            // if (defaultTargetPlatform == TargetPlatform.iOS) ...[
+            //   SizedBox(height: 10),
+            // ],
             Chip(
               avatar: chipAvatar,
               shape: borderside,
@@ -210,21 +212,30 @@ class StoryItem {
               ),
             ),
             SizedBox(height: 50),
-            Text(
-              title,
-              style: textStyle?.copyWith(
-                    color: contrast > 1.8 ? Colors.white : Colors.black,
-                  ) ??
-                  TextStyle(
-                    color: contrast > 1.8 ? Colors.white : Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
-              textAlign: TextAlign.left,
-            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+              Text(
+                title,
+                style: textStyle?.copyWith(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                    ) ??
+                    TextStyle(
+                      color: contrast > 1.8 ? Colors.white : Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
+                textAlign: TextAlign.left,
+              ),
+             moneyFormated == null ? Text('') : formatNaira(moneyFormated)
+            ]),
+
             SizedBox(
               height: 10,
             ),
+
             Text(
               subtitle,
               style: textStyle?.copyWith(
