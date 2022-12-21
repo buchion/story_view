@@ -212,23 +212,22 @@ class StoryItem {
             ),
             SizedBox(height: 50),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-              Text(
-                title,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    ),
-                textAlign: TextAlign.left,
-              ),
-            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: textStyle?.copyWith(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                        ) ??
+                        TextStyle(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                ]),
 
             SizedBox(
               height: 10,
@@ -259,8 +258,7 @@ class StoryItem {
     );
   }
 
-
-    static StoryItem hervestMoneyFormat({
+  static StoryItem hervestMoneyFormat({
     required String title,
     required String subtitle,
     required Widget image,
@@ -317,29 +315,38 @@ class StoryItem {
             ),
             SizedBox(height: 50),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-              Text(
-                title,
-                style: textStyle?.copyWith(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                    ) ??
-                    TextStyle(
-                      color: contrast > 1.8 ? Colors.white : Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: textStyle?.copyWith(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                        ) ??
+                        TextStyle(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(width: 20),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: '₦', style: TextStyle(fontFamily: 'arial')),
+                        TextSpan(
+                          text: '${formatMoney(moneyFormated, precision: 0)}',
+                          style: TextStyle(),
+                        ),
+                      ],
                     ),
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(width: 20),
-            formatNaira(moneyFormated)
-            ]),
-
+                  )
+                ]),
             SizedBox(
               height: 10,
             ),
-
             Text(
               subtitle,
               style: textStyle?.copyWith(
@@ -365,6 +372,101 @@ class StoryItem {
     );
   }
 
+  static StoryItem hervestStoryWithWidget({
+    required String title,
+    required Widget subtitle,
+    required Widget image,
+    String? chipHeader,
+    TextStyle? chipHeaderStyle,
+    Widget? storyHeaderIcon,
+    Widget? chipAvatar,
+    StadiumBorder? borderside,
+    required Color backgroundColor,
+    Key? key,
+    TextStyle? textStyle,
+    bool shown = false,
+    bool roundedTop = false,
+    bool roundedBottom = false,
+    Duration? duration,
+  }) {
+    double contrast = ContrastHelper.contrast([
+      backgroundColor.red,
+      backgroundColor.green,
+      backgroundColor.blue,
+    ], [
+      255,
+      255,
+      255
+    ] /** white text */);
+
+    return StoryItem(
+      Container(
+        key: key,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(roundedTop ? 8 : 0),
+            bottom: Radius.circular(roundedBottom ? 8 : 0),
+          ),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: 24,
+          // vertical: 10,
+        ),
+        // child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50),
+            // if (defaultTargetPlatform == TargetPlatform.iOS) ...[
+            //   SizedBox(height: 10),
+            // ],
+            Chip(
+              avatar: chipAvatar,
+              shape: borderside,
+              backgroundColor: Color(0xFF5B2E4F),
+              label: Text(
+                chipHeader.toString(),
+                style: chipHeaderStyle,
+              ),
+            ),
+            SizedBox(height: 50),
+
+            Row(mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: textStyle?.copyWith(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                        ) ??
+                        TextStyle(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                ]),
+
+            SizedBox(
+              height: 10,
+            ),
+
+            subtitle,
+            SizedBox(
+              height: 80,
+            ),
+            Center(child: image)
+          ],
+        ),
+        // ),
+      ),
+      shown: shown,
+      duration: duration ?? Duration(seconds: 3),
+    );
+  }
 
   static StoryItem text({
     required String title,
