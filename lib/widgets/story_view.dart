@@ -331,7 +331,6 @@ class StoryItem {
             ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     subtitle,
@@ -357,15 +356,10 @@ class StoryItem {
                             )),
                         TextSpan(
                           text: '${formatMoney(moneyFormated, precision: 0)}',
-                          style: textStyle?.copyWith(
-                                color: contrast > 1.8
-                                    ? Colors.white
-                                    : Colors.black,
-                              ) ??
+                          
+                          style: 
                               TextStyle(
-                                color: contrast > 1.8
-                                    ? Colors.white
-                                    : Colors.black,
+                                fontFamily: 'Satoshi',
                                 fontSize: 24,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -468,7 +462,7 @@ class StoryItem {
             SizedBox(
               height: 10,
             ),
-            Positioned(child: subtitle),
+            SizedBox(child: subtitle),
 
             SizedBox(
               height: 80,
@@ -551,6 +545,7 @@ class StoryItem {
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
+    TextStyle? textStyleSub,
     bool shown = false,
     bool roundedTop = false,
     bool roundedBottom = false,
@@ -612,10 +607,11 @@ class StoryItem {
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                
                 children: [
                   Text(
                     beforeMoneySubtitle,
-                    style: textStyle?.copyWith(
+                    style: textStyleSub?.copyWith(
                           color: contrast > 1.8 ? Colors.white : Colors.black,
                         ) ??
                         TextStyle(
@@ -633,32 +629,25 @@ class StoryItem {
                             text: '₦',
                             style: TextStyle(
                               fontFamily: 'arial',
-                              fontSize: 24,
+                              fontSize: 25,
                               fontWeight: FontWeight.w700,
                             )),
                         TextSpan(
                           text: '${formatMoney(moneyFormated, precision: 0)}',
-                          style: textStyle?.copyWith(
-                                color: contrast > 1.8
-                                    ? Colors.white
-                                    : Colors.black,
-                              ) ??
-                              TextStyle(
-                                color: contrast > 1.8
-                                    ? Colors.white
-                                    : Colors.black,
+                          style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w700,
+                                fontFamily: 'Satoshi',
                               ),
+                              
                         ),
                       ],
                     ),
                   ),
-                 
                 ]),
                  Text(
                     afterMoneySubtitle,
-                    style: textStyle?.copyWith(
+                    style: textStyleSub?.copyWith(
                           color: contrast > 1.8 ? Colors.white : Colors.black,
                         ) ??
                         TextStyle(
