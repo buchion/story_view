@@ -260,7 +260,6 @@ class StoryItem {
   }
 
 
-
     static StoryItem hervestMoneyFormat({
     required String title,
     required String subtitle,
@@ -269,7 +268,7 @@ class StoryItem {
     TextStyle? chipHeaderStyle,
     Widget? storyHeaderIcon,
     Widget? chipAvatar,
-    String? moneyFormated,
+    required String? moneyFormated,
     StadiumBorder? borderside,
     required Color backgroundColor,
     Key? key,
@@ -317,7 +316,6 @@ class StoryItem {
               ),
             ),
             SizedBox(height: 50),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -366,10 +364,6 @@ class StoryItem {
       duration: duration ?? Duration(seconds: 3),
     );
   }
-
-
-
-
 
 
   static StoryItem text({
