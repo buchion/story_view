@@ -314,19 +314,34 @@ class StoryItem {
               ),
             ),
             SizedBox(height: 50),
+            Text(
+              title,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    title,
+                    subtitle,
                     style: textStyle?.copyWith(
                           color: contrast > 1.8 ? Colors.white : Colors.black,
                         ) ??
                         TextStyle(
                           color: contrast > 1.8 ? Colors.white : Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
                         ),
                     textAlign: TextAlign.left,
                   ),
@@ -335,30 +350,31 @@ class StoryItem {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                            text: '₦', style: TextStyle(fontFamily: 'arial')),
+                            text: '₦',
+                            style: TextStyle(
+                              fontFamily: 'arial',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            )),
                         TextSpan(
                           text: '${formatMoney(moneyFormated, precision: 0)}',
-                          style: TextStyle(),
+                          style: textStyle?.copyWith(
+                                color: contrast > 1.8
+                                    ? Colors.white
+                                    : Colors.black,
+                              ) ??
+                              TextStyle(
+                                color: contrast > 1.8
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                              ),
                         ),
                       ],
                     ),
                   )
                 ]),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              subtitle,
-              style: textStyle?.copyWith(
-                    color: contrast > 1.8 ? Colors.white : Colors.black,
-                  ) ??
-                  TextStyle(
-                    color: contrast > 1.8 ? Colors.white : Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  ),
-              textAlign: TextAlign.left,
-            ),
             SizedBox(
               height: 80,
             ),
