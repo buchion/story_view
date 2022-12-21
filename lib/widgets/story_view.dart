@@ -331,7 +331,7 @@ class StoryItem {
             ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     subtitle,
@@ -611,7 +611,7 @@ class StoryItem {
             ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     beforeMoneySubtitle,
