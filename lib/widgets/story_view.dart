@@ -330,8 +330,8 @@ class StoryItem {
               height: 10,
             ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
                 children: [
                   Text(
                     subtitle,
@@ -345,7 +345,6 @@ class StoryItem {
                         ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(width: 20),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -532,6 +531,149 @@ class StoryItem {
           ),
         ),
         //color: backgroundColor,
+      ),
+      shown: shown,
+      duration: duration ?? Duration(seconds: 3),
+    );
+  }
+
+  static StoryItem impactInvestment({
+    required String title,
+    required String beforeMoneySubtitle,
+    required String afterMoneySubtitle,
+    required Widget image,
+    String? chipHeader,
+    TextStyle? chipHeaderStyle,
+    Widget? storyHeaderIcon,
+    Widget? chipAvatar,
+    required String? moneyFormated,
+    StadiumBorder? borderside,
+    required Color backgroundColor,
+    Key? key,
+    TextStyle? textStyle,
+    bool shown = false,
+    bool roundedTop = false,
+    bool roundedBottom = false,
+    Duration? duration,
+  }) {
+    double contrast = ContrastHelper.contrast([
+      backgroundColor.red,
+      backgroundColor.green,
+      backgroundColor.blue,
+    ], [
+      255,
+      255,
+      255
+    ] /** white text */);
+
+    return StoryItem(
+      Container(
+        key: key,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(roundedTop ? 8 : 0),
+            bottom: Radius.circular(roundedBottom ? 8 : 0),
+          ),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: 24,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 50),
+            Chip(
+              avatar: chipAvatar,
+              shape: borderside,
+              backgroundColor: Color(0xFF5B2E4F),
+              label: Text(
+                chipHeader.toString(),
+                style: chipHeaderStyle,
+              ),
+            ),
+            SizedBox(height: 50),
+            Text(
+              title,
+              style: textStyle?.copyWith(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                  ) ??
+                  TextStyle(
+                    color: contrast > 1.8 ? Colors.white : Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                children: [
+                  Text(
+                    beforeMoneySubtitle,
+                    style: textStyle?.copyWith(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                        ) ??
+                        TextStyle(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(' '),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: '₦',
+                            style: TextStyle(
+                              fontFamily: 'arial',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            )),
+                        TextSpan(
+                          text: '${formatMoney(moneyFormated, precision: 0)}',
+                          style: textStyle?.copyWith(
+                                color: contrast > 1.8
+                                    ? Colors.white
+                                    : Colors.black,
+                              ) ??
+                              TextStyle(
+                                color: contrast > 1.8
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    afterMoneySubtitle,
+                    style: textStyle?.copyWith(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                        ) ??
+                        TextStyle(
+                          color: contrast > 1.8 ? Colors.white : Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                ]),
+            SizedBox(
+              height: 80,
+            ),
+            Center(child: image)
+          ],
+        ),
+        // ),
       ),
       shown: shown,
       duration: duration ?? Duration(seconds: 3),
