@@ -453,8 +453,8 @@ class StoryItem {
             SizedBox(
               height: 10,
             ),
+            Positioned(child: subtitle),
 
-            subtitle,
             SizedBox(
               height: 80,
             ),
