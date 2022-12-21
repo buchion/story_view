@@ -654,7 +654,9 @@ class StoryItem {
                       ],
                     ),
                   ),
-                  Text(
+                 
+                ]),
+                 Text(
                     afterMoneySubtitle,
                     style: textStyle?.copyWith(
                           color: contrast > 1.8 ? Colors.white : Colors.black,
@@ -666,7 +668,6 @@ class StoryItem {
                         ),
                     textAlign: TextAlign.left,
                   ),
-                ]),
             SizedBox(
               height: 80,
             ),
