@@ -197,7 +197,7 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 70),
             // if (defaultTargetPlatform == TargetPlatform.iOS) ...[
             //   SizedBox(height: 10),
             // ],
@@ -210,7 +210,7 @@ class StoryItem {
                 style: chipHeaderStyle,
               ),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 40),
 
             Row(mainAxisAlignment: MainAxisAlignment.start,
                 // crossAxisAlignment: CrossAxisAlignment.center,
@@ -303,7 +303,7 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 70),
             Chip(
               avatar: chipAvatar,
               shape: borderside,
@@ -313,7 +313,7 @@ class StoryItem {
                 style: chipHeaderStyle,
               ),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 35),
             Text(
               title,
               style: textStyle?.copyWith(
@@ -578,7 +578,7 @@ class StoryItem {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 70),
             Chip(
               avatar: chipAvatar,
               shape: borderside,
@@ -588,7 +588,7 @@ class StoryItem {
                 style: chipHeaderStyle,
               ),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             Text(
               title,
               style: textStyle?.copyWith(
